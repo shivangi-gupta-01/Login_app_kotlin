@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
-class MainActivity : AppCompatActivity() {
+class MainActivitykotlin : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(this@MainActivity, "Login Successful", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivitykotlin, "Login Successful", Toast.LENGTH_SHORT).show()
                             // Navigate to next screen here
                         } else {
                             val errorMessage = when (task.exception) {
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                                 is FirebaseAuthInvalidCredentialsException -> "Invalid email or password"
                                 else -> "Login failed: ${task.exception?.message}"
                             }
-                            Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@MainActivitykotlin, errorMessage, Toast.LENGTH_LONG).show()
                         }
                     }
             } else {
